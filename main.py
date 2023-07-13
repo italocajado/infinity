@@ -81,20 +81,13 @@ import math
 # R = int(input ("Digite o raio: "))
 # volume(R)
 
-# def fat ():
-#     n = int(input("digite o numero para ser o fatorial: "))
-#     fato = 1
-#     i = 2 
-#     while i <= n :
-#       fato = fato * i
-#       i = i + 1
-#     print(fato)# 
+def fat ():
+    n = int(input("digite o numero para ser o fatorial: "))
+    fato = 1
+    i = 2 
+    while i <= n :
+      fato = fato * i
+      i = i + 1
+    print(fato)
 
-# fat() 
-
-def mat (N):
-    S = 1 + 1/2 + 1/3 + 1/4 + 1/5 + 1/N
-    print (S)
-
-num = int(input("digite um valor para fazer as contas: "))
-mat (num)
+fat() 
