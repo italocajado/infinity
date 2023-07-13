@@ -42,17 +42,52 @@
 
 #idade(ano, ms, dia)
 
-def teste(n):
-    if n > 0:
-        print ("positivo")
-        
-        if n % 2 == 0:
-            print ("par")
-        else: 
-            print("impar")
-    else:
-        print ("negativo")
+# def teste(n):
+#     if n > 0:
+#         print ("positivo")
+#         
+#         if n % 2 == 0:
+#             print ("par")
+#         else: 
+#             print("impar")
+#     else:
+#         print ("negativo")# 
 
-num = (int(input("digite um numero: ")))
+# num = (int(input("digite um numero: ")))# 
 
-teste(num)
+# teste(num)
+
+# #def teste(n):
+#     if n > 0:
+#         print ("positivo")
+#         
+#         if n % 2 == 0:
+#             print ("par")
+#         else: 
+#             print("impar")
+#     else:
+#         print ("negativo")# 
+
+# num = (int(input("digite um numero: ")))# 
+
+# teste(num)# 
+
+import math
+
+# def volume (R):
+#   vl = (4 / (3 * math.pi) * (R ** 3))
+#   print(vl)# 
+
+# R = int(input ("Digite o raio: "))
+# volume(R)
+
+def fat ():
+    n = int(input("digite o numero para ser o fatorial: "))
+    fato = 1
+    i = 2 
+    while i <= n :
+      fato = fato * i
+      i = i + 1
+    print(fato)
+
+fat() 
