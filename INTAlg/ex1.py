@@ -13,7 +13,7 @@ print ("O produto entre os valores", num1, "e", num2, "são: ", prod)
 n1 = int(input("digite o primeiro valor: "))
 n2 = int(input("Digite o segundo valor: "))
 n3 = int(input("Digite o terceiro valor: "))
-media = n1+n2+n3 / 3
+media = (n1+n2+n3) / 3
 
 print("A media é: ", media)
 
