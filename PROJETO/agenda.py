@@ -22,11 +22,6 @@ def alterarContato(nome, tel):
         print(Fore.GREEN + '\nSUCESSO!')
         print(Style.RESET_ALL)
 
-def alterNome(nome):
-    if nome in agenda:
-        del agenda[nome]
-        print(Fore.GREEN + '\nSUCESSO!')
-        print(Style.RESET_ALL)
 
 def excludeContato(nome):
     if nome in agenda:
@@ -56,8 +51,6 @@ while True:
         if choice == 1:
             tel = input('insira o novo telefone: ')
             alterarContato(nome, tel)
-        elif choice == 2:
-            alterNome(nome)
     elif opcao == 3:
         buscContatos()
     elif opcao == 4:
