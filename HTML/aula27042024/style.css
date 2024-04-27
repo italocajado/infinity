@@ -1,0 +1,98 @@
+header{
+    text-align: center;
+    font-size: 36px;
+}
+
+.adote{
+    color: rgb(43, 48, 53);
+}
+
+h1{
+    text-align: center;
+    color: aliceblue;
+}
+
+h2{
+    color: aliceblue;
+}
+
+h3{
+    color: aliceblue;
+}
+
+article{
+    text-align: center;
+    color: aliceblue;
+}
+
+p{
+    color: aliceblue;
+    text-align: justify;
+    padding: 10px;
+    margin: 10px;
+}
+
+html{
+    background-color: blueviolet;
+}
+
+div{
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.razao{
+    color: aliceblue;
+    font-size: 36px;
+}
+ul{
+    text-align: center;
+    color: aliceblue;
+}
+
+li{
+    list-style-type: none;
+}
+
+.anm{
+    width: 32px;
+    margin: 5px;
+    display: block;    
+}
+
+.adt{
+    border-radius: 5px;
+    border-color: antiquewhite;
+    border-width: 5px;
+}
+
+button{
+    border-radius: 50px;
+    margin: 30px;
+    padding: 20px;
+}
+
+label{
+    color: aliceblue;
+    margin: 5px;
+    display: block;
+    align-self: start;
+}
+
+input{
+    border-radius: 50px;
+    width: 200px;
+}
+
+textarea{
+    border-radius: 20px;
+}
+
+.logo{
+    margin-left: 200px;
+    display: flex;
+    width: 60px;
+    align-content: center;
+}

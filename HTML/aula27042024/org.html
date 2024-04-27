@@ -1,0 +1,40 @@
+<html>
+  <head>
+    <!-- Referência: https://developers.google.com/chart/interactive/docs/gallery/orgchart -->
+
+    <script type='text/javascript' src='https://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['orgchart']});
+      google.setOnLoadCallback(drawChart);
+      
+      function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Name');
+        data.addColumn('string', 'Manager');
+        data.addColumn('string', 'ToolTip');
+        data.addRows([
+          [{v:'TJPE', f:'INFINITY'}, '', ''],
+          [{v:'PRESIDENCIA', f:'CEO'}, 'TJPE', ''],
+          [{v:'CONSULTORIA JURIDICA', f:'DIRETORES'}, 'PRESIDENCIA', ''],
+          [{v:'NUCLEO DE APOIO ADMINISTRATIVO', f:'GERENTE FORTALEZA'}, 'CONSULTORIA JURIDICA', ''],
+          [{v:'TESTE', f:'FUNCIONARIO'}, 'NUCLEO DE APOIO ADMINISTRATIVO', ''],
+          [{v:'NUCLEO ORIENTA JURIDI SERVIDOR', f:'GERENTE SALVADOR'}, 'CONSULTORIA JURIDICA', ''],
+          [{v:'TESTE3', f:'FUNCIONARIO'}, 'NUCLEO ORIENTA JURIDI SERVIDOR', ''],
+          [{v:'ASSESSORIA JURIDICA', f:'GERENTE BH'}, 'CONSULTORIA JURIDICA', ''],
+          [{v:'TESTE4', f:'FUNCIONARIO'}, 'ASSESSORIA JURIDICA', ''],
+      
+      /*['Alice', 'Mike', ''],
+          ['Bob', 'Jim', 'Bob Sponge'],
+      ['Carol', 'Bob', '']*/
+        ]);
+        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
+        chart.draw(data, {allowHtml:true, allowCollapse:true});
+      }
+    </script>
+  </head>
+
+  <body>
+    *Duplo-clique expande ou recolhe os itens inferiores.
+    <div id='chart_div'></div>
+  </body>
+</html>
