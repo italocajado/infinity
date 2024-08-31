@@ -1,0 +1,25 @@
+form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 16px;
+    margin: auto;
+    gap: 16px;
+    height: 100%;
+    max-width: 300px;
+    height: fit-content;
+    box-shadow: 2px 2px 2px #cacaca;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.header{
+    margin-bottom: 16px;
+}

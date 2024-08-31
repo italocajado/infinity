@@ -1,0 +1,54 @@
+*{
+
+    font-family: sans-serif;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-color: azure;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+button, .add-contato, .voltar, a.btn{
+    padding: 8px;
+    border-radius: 5px;
+    background-color: cadetblue;
+    border: none;
+    color: azure;
+    width: 100%;
+}
+
+.add-contato{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    max-width: 600px;
+}
+
+.voltar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 16px;
+    max-width: 600px;
+    border: 1px solid cadetblue;
+    color: cadetblue;
+    background-color: #fff;
+
+}
+
+input{
+    font-size: 14px;
+    border: solid 1px #000;
+    border-radius: 5px;
+    padding: 6px;
+}
+
+.delete-btn{
+    background-color: orangered;
+}

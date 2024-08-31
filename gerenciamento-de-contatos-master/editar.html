@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/geral.css">
+    <link rel="stylesheet" href="css/adicionar.css">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <div class="header">
+            <h2>Editar contato</h2>
+        </div>
+        <div class="campo">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="name">
+        </div>
+        
+        <div class="campo">
+            <label for="numero">Numero</label>
+            <input type="number" name="numero" id="numero">
+        </div>
+        
+        <div class="campo">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </div>
+
+        <button onclick="atualizarContato(event)">
+            ATUALIZAR
+        </button>
+        <a href="./index.html" class="voltar">voltar</a>
+
+
+    </form>
+    <script src="/js/geral.js"></script>
+    <script src="/js/adicionar.js"></script>
+    <script src="/js/editar.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+.lista-contatos__item{
+    background-color: #fff;
+    padding: 8px;
+    box-shadow: 2px 2px 2px #cacaca;
+    border-radius: 5px;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.lista-contatos__item__action{
+    display: flex;
+    gap: 8px;
+    margin: 4px;
+}
+
+h1{
+    font-size: 28px;
+    margin-bottom: 32px;
+}
+
+.lista-contatos{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 600px;
+}
