@@ -1,0 +1,20 @@
+
+.notification{
+    display: none;
+    margin-bottom: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.notification.success {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.notification.error {
+    background-color: #a72828;
+    color: #fff;
+}
