@@ -1,0 +1,106 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #000000;
+    color: #fff;
+}
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #000000;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo img {
+    width: 100px;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 20px;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.profile-section img {
+    width: 40px;
+    border-radius: 50%;
+}
+
+
+.banner {
+    position: relative;
+    height: 70vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.banner-text h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.banner .btn {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: rgba(51, 51, 51, 0.7);
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+.carousel {
+    margin: 40px 0;
+    padding: 0 40px;
+}
+
+.carousel h2 {
+    margin-bottom: 20px;
+}
+
+.carousel-items {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+}
+
+.carousel-items img {
+    width: 200px;
+    border-radius: 10px;
+    transition: transform 0.2s;
+}
+
+.carousel-items img:hover {
+    transform: scale(1.1);
+}
+
+footer{
+    display: flex;
+    justify-content: center;
+}
