@@ -2,31 +2,83 @@ let produtosDaApi = [];
 let produtosCadastrados = [];
 let carrinho = [];
 
-window.onload = carregarCatalogo;
+// Função para carregar os produtos cadastrados do localStorage
+function carregarProdutosCadastrados() {
+    const produtosSalvos = localStorage.getItem('produtosCadastrados');
+    if (produtosSalvos) {
+        produtosCadastrados = JSON.parse(produtosSalvos);
+    }
+}
+
+// Adiciona produtos ao localStorage
+function salvarProdutosNoLocalStorage() {
+    localStorage.setItem('produtosCadastrados', JSON.stringify(produtosCadastrados));
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    carregarProdutosCadastrados(); // Carrega produtos ao iniciar
+    carregarCatalogo();
+
+    const formCadastro = document.getElementById('form-cadastro');
+    if (formCadastro) {
+        formCadastro.addEventListener('submit', e => {
+            e.preventDefault();
+
+            const nome = document.getElementById('nome').value;
+            const descricao = document.getElementById('descricao').value;
+            const preco = parseFloat(document.getElementById('preco').value);
+            const estoque = parseInt(document.getElementById('estoque').value);
+            const imagem = document.getElementById('imagem').value;
+
+            if (nome && descricao && !isNaN(preco) && !isNaN(estoque) && imagem) {
+                const novoProduto = {
+                    id: Date.now(), // Gera um ID único
+                    title: nome,
+                    description: descricao,
+                    price: preco,
+                    stock: estoque,
+                    image: imagem,
+                };
+
+                produtosCadastrados.push(novoProduto);
+                salvarProdutosNoLocalStorage(); // Salva no localStorage
+                exibirProdutos(); // Exibe produtos após o cadastro
+                alert('Produto cadastrado com sucesso!');
+                formCadastro.reset(); // Limpa o formulário
+            } else {
+                alert('Preencha todos os campos corretamente.');
+            }
+        });
+    }
+});
 
 async function carregarCatalogo() {
-    const catalogo = document.getElementById('catalogo');
-    if (!catalogo) return;
-
-    catalogo.innerHTML = '';
-
     try {
         const response = await fetch('https://fakestoreapi.com/products');
         produtosDaApi = await response.json();
+        produtosDaApi = produtosDaApi.map(produto => ({
+            ...produto,
+            stock: 10
+        }));
     } catch (error) {
         console.error('Erro ao buscar produtos:', error);
-        alert('Não foi possível carregar os produtos. Tente novamente mais tarde.');
+        alert('Não foi possível carregar os produtos da API.');
+    }
+    exibirProdutos();
+}
+
+function exibirProdutos() {
+    const catalogo = document.getElementById('catalogo');
+    if (!catalogo) {
+        console.error('Elemento do catálogo não encontrado.');
         return;
     }
 
-    exibirProdutos([...produtosDaApi, ...produtosCadastrados]);
-}
+    catalogo.innerHTML = ''; // Limpa o catálogo antes de exibir
 
-function exibirProdutos(produtos) {
-    const catalogo = document.getElementById('catalogo');
-    catalogo.innerHTML = '';
+    const todosProdutos = [...produtosDaApi, ...produtosCadastrados];
 
-    produtos.forEach(produto => {
+    todosProdutos.forEach(produto => {
         const card = document.createElement('div');
         card.classList.add('col-md-4', 'mb-4');
         card.innerHTML = `
@@ -36,10 +88,8 @@ function exibirProdutos(produtos) {
                     <h5 class="card-title">${produto.title}</h5>
                     <p class="card-text">${produto.description}</p>
                     <p class="card-text"><strong>R$ ${produto.price.toFixed(2)}</strong></p>
-                    <p class="card-text">Estoque: <span id="estoque-${produto.id}">10</span></p>
-                    <button class="btn btn-primary" onclick="adicionarAoCarrinho(${produto.id})">
-                        Adicionar ao Carrinho
-                    </button>
+                    <p class="card-text">Estoque: <span id="estoque-${produto.id}">${produto.stock}</span></p>
+                    <button class="btn btn-primary" onclick="adicionarAoCarrinho(${produto.id})">Adicionar ao Carrinho</button>
                     <button class="btn btn-danger" onclick="excluirProduto(${produto.id})">Excluir</button>
                 </div>
             </div>
@@ -49,12 +99,10 @@ function exibirProdutos(produtos) {
 }
 
 function excluirProduto(produtoId) {
-    const confirmacao = confirm('Tem certeza que deseja excluir este produto?');
-    if (confirmacao) {
-        produtosCadastrados = produtosCadastrados.filter(produto => produto.id !== produtoId);
-        carregarCatalogo();
-        alert('Produto excluído com sucesso!');
-    }
+    produtosCadastrados = produtosCadastrados.filter(produto => produto.id !== produtoId);
+    salvarProdutosNoLocalStorage(); // Atualiza o localStorage
+    exibirProdutos();
+    alert('Produto excluído com sucesso!');
 }
 
 function adicionarAoCarrinho(produtoId) {
@@ -64,13 +112,11 @@ function adicionarAoCarrinho(produtoId) {
 
     if (estoqueAtual > 0) {
         const itemCarrinho = carrinho.find(item => item.id === produtoId);
-
         if (itemCarrinho) {
             itemCarrinho.quantidade++;
         } else {
             carrinho.push({ ...produto, quantidade: 1 });
         }
-
         estoqueElemento.textContent = estoqueAtual - 1;
         exibirCarrinho();
     } else {
@@ -80,16 +126,15 @@ function adicionarAoCarrinho(produtoId) {
 
 function exibirCarrinho() {
     const carrinhoDiv = document.getElementById('carrinho');
-    const total = carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0);
+    if (!carrinhoDiv) return;
 
+    const total = carrinho.reduce((acc, item) => acc + (item.price * item.quantidade), 0);
     carrinhoDiv.innerHTML = carrinho.map(item => `
         <div class="d-flex justify-content-between">
             <span>${item.title} (x${item.quantidade})</span>
             <span>R$ ${(item.price * item.quantidade).toFixed(2)}</span>
         </div>
     `).join('');
-
-    // Exibir total
     carrinhoDiv.innerHTML += `
         <div class="d-flex justify-content-between font-weight-bold">
             <span>Total</span>
