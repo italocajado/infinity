@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edição - Indústrias Wayne</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="cabecalho">
+      <a href="/inicio">Voltar</a>
+      <img src="{{ url_for('static', filename='wayne-logo.png') }}" alt="Wayne Industries" class="logo">
+      <a href="/logout">Logout</a>
+    </div>
+    <h1>Edição e Exclusão</h1>
+    <h3 style="margin: 10px 10px;">Usuário: <b>{{session.user.upper()}}</b></h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Ação</th>
+        </tr>
+      </thead>
+      <tbody id="data-table">
+        <!-- Os dados serão carregados via JavaScript -->
+      </tbody>
+    </table>
+  </div>
+  <script src="../app.js"></script>
+</body>
+</html>

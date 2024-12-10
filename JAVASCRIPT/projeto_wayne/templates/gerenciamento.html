@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerenciamento - Indústrias Wayne</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <div class="cabecalho">
+      <a href="/inicio">Voltar</a>
+      <img src="{{ url_for('static', filename='wayne-logo.png') }}" alt="Wayne Industries" class="logo">
+      <a href="/logout">Logout</a>
+    </div>
+    <h1>Gerenciamento de Itens e Salas</h1>
+    <h3 style="margin: 10px 10px;">Usuário: <b>{{session.user.upper()}}</b></h3>
+    <div id="management-section">
+      <!-- Conteúdo dinâmico carregado via JS -->
+    </div>
+  </div>
+  <script src="{{ url_for('static', filename='js.js') }}"></script>
+</body>
+</html>

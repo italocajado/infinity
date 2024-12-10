@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Indústrias Wayne</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body class="login-page">
+  <div class="container">
+    <img src="{{ url_for('static', filename='wayne-logo.png') }}" alt="Wayne Industries" class="logo">
+    <h1>Login nas Indústrias Wayne</h1>
+    <div class="error"></div>
+    <form id="login-form">
+      <input type="text" placeholder="Usuário" required>
+      <input type="password" placeholder="Senha" required>
+      <button type="submit" class="btn">Entrar</button>
+    </form>
+  </div>
+  <script src="{{ url_for('static', filename='js.js') }}"></script>
+</body>
+</html>

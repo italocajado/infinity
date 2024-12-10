@@ -1,0 +1,13 @@
+INSERT INTO TBL_FUNCAO (DE_FUNCAO,NVL_ACESSO)
+VALUES
+    ('FUNCIONARIO', 1),
+    ('GERENTE', 2),
+    ('ADMINISTRADOR', 3)
+;
+insert into TBL_USUARIO (NM_USUARIO, CPF, SENHA, ID_FUNCAO)
+values (
+	"ADMIN",
+	"_",
+	"$2b$12$ckNsf4eIpeLxtaXPsOt8OOuy7AvRfX2pbNFMleKwqVOYVCUZyy0cO",
+	3
+)
